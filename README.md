@@ -1,8 +1,8 @@
-RAG (Retrieval-Augmented Generation) PDF Question Answering System
+# RAG (Retrieval-Augmented Generation) PDF Question Answering System
 
 A Streamlit-based web application that implements a RAG pipeline for answering questions about PDF documents using a local Ollama LLM server.
 
-Features
+## Features
 
 - PDF Upload & Processing: Upload multiple PDF files through an intuitive web interface
 - Vector Database Storage: Automatically process and store PDF content in ChromaDB
@@ -10,15 +10,15 @@ Features
 - Configurable Retrieval: Adjust the number of relevant chunks retrieved for better accuracy
 - Local LLM Integration: Uses Ollama with Llama2 model for privacy and offline operation
 
-Architecture
+## Architecture
 
-Frontend
+### Frontend
 - Streamlit - Clean, interactive web interface
 - File upload functionality for PDFs
 - Text input for questions
 - Configurable retrieval parameters
 
-Backend Components
+### Backend Components
 
 1. PDF Processing (`rag_pipeline.py`):
    - PDF text extraction using PyPDF
@@ -37,52 +37,60 @@ Backend Components
    - User interaction management
    - Error handling and display
 
-Prerequisites
+## Prerequisites
 
 - Python 3.8+
 - Ollama installed and running locally
 - Llama2 model downloaded in Ollama
 
-Installation
+## Installation
 
 1. Clone the repository:
+   ```bash
    git clone https://github.com/Zain-Naqvi-tech/rag_ollama.git
    cd rag_ollama
+   ```
 
 2. Create and activate virtual environment:
+   ```bash
    python -m venv venv
    # On Windows:
    venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
 
 3. Install dependencies:
+   ```bash
    pip install streamlit chromadb sentence-transformers pypdf requests
+   ```
 
-4. Install and setup Ollama:
-   - Install and start the Ollama service
-
-Usage
+## Usage
 
 1. Start the application:
+   ```bash
    streamlit run main.py
+   ```
 
-2. Upload PDF files using the file uploader
+2. Open your browser and navigate to `http://localhost:8501`
 
-3. Process PDFs by clicking the "Process PDFs" button
+3. Upload PDF files using the file uploader
 
-4. Ask questions by entering your query and clicking "Ask"
+4. Process PDFs by clicking the "Process PDFs" button
 
-5. Adjust retrieval settings by modifying the "top_k" parameter (more chunks = more context but slower response)
+5. Ask questions by entering your query and clicking "Ask"
 
-Configuration
+6. Adjust retrieval settings by modifying the "top_k" parameter (more chunks = more context but slower response)
 
-Model Configuration
+## Configuration
+
+### Model Configuration
 - LLM Model: Llama2 (configurable in `ollama_client.py`)
 - Embedding Model: all-MiniLM-L6-v2 (configurable in `rag_pipeline.py`)
 - Vector Database: ChromaDB (in-memory)
 
-Performance Tuning
+### Performance Tuning
 - Chunking Strategy: Page-based (can be modified for different strategies)
 - Retrieval: Configurable top_k parameter for context retrieval
 - Streaming: Enabled for real-time response generation
-
 
